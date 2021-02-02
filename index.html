@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+    <head>
+        <title>ROCK PAPER SCISSORS!</title>
+        <script>
+            const selection = ["rock", "paper", "scissors"];
+            function computerPlay() {
+                return selection[Math.floor(Math.random() * selection.length)];
+            }
+
+            function playRound(playerSelection, computerSelection) {
+               const player = playerSelection.toLowerCase();
+               const comp = computerSelection.toLowerCase();
+
+               switch(player) {
+                   case "rock":
+                       if(comp === "paper") {
+                           return true;
+                       } else if (comp === "scissors") {
+                           return false;
+                       } else {
+                           return "Tie"
+                       }
+                       break;
+                    case "paper":
+                        if(comp === "scissors") {
+                            return true;
+                        } else if (comp === "rock") {
+                            return false;
+                        } else {
+                            return "Tie"
+                        }
+                        break;
+                    case "scissors":
+                        if(comp === "rock") {
+                            return true;
+                        } else if (comp === "paper") {
+                            return false;
+                        } else {
+                            return "Tie"
+                        }
+                        break;
+                    default:
+                        return "Invalid Input";
+                        break;
+               }
+            }
+
+            function game() {
+                let round = 0;
+                let score = 0;
+                do {
+                    let playerSelection = window.prompt("Type your selection('rock', 'paper', 'scissors'");
+                    let computerSelection = computerPlay();
+                    let result = playRound(playerSelection, computerSelection);
+
+                    console.log("You chose " + playerSelection);
+                    console.log("The computer chose " + computerSelection);
+
+                    if(result) {
+                        console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
+                        score++;
+                    } else if(result === "Tie") {
+                        console.log(`Tie! Both chose ${playerSelection}`);
+                    } else {
+                        console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
+                    }
+                    round++;
+                } while (round < 5);
+
+                console.log(`Your score is ${score}/5`);
+            }
+        </script>
+    </head>
+</html>
