@@ -15,27 +15,27 @@
                switch(player) {
                    case "rock":
                        if(comp === "paper") {
-                           return true;
+                           return "Win";
                        } else if (comp === "scissors") {
-                           return false;
+                           return "Lose";
                        } else {
                            return "Tie"
                        }
                        break;
                     case "paper":
                         if(comp === "scissors") {
-                            return true;
+                            return "Win";
                         } else if (comp === "rock") {
-                            return false;
+                            return "Lose";
                         } else {
                             return "Tie"
                         }
                         break;
                     case "scissors":
                         if(comp === "rock") {
-                            return true;
+                            return "Win";
                         } else if (comp === "paper") {
-                            return false;
+                            return "Lose";
                         } else {
                             return "Tie"
                         }
@@ -57,13 +57,15 @@
                     console.log("You chose " + playerSelection);
                     console.log("The computer chose " + computerSelection);
 
-                    if(result) {
+                    if(result === "Win") {
                         console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
                         score++;
                     } else if(result === "Tie") {
                         console.log(`Tie! Both chose ${playerSelection}`);
-                    } else {
+                    } else if(result === "Lose") {
                         console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
+                    } else {
+                        console.log(result);
                     }
                     round++;
                 } while (round < 5);
@@ -72,4 +74,11 @@
             }
         </script>
     </head>
+    <body>
+        <header>
+            <h1>Console-based Rock, Paper, Scissors</h1>
+        </header>
+        <p>Open the console of your browser and type <b>'game()'</b> to start the game.</p>
+        <p>Type 'rock', 'paper', or 'scissors' on the prompt.</p>
+    </body>
 </html>
